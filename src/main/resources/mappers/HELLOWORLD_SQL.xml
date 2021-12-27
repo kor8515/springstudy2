@@ -9,4 +9,29 @@
     	SELECT TEST1
     	FROM TEST_T	    
     </select>
+    
+    <select id="getTest2" resultType="String">
+    	
+    	SELECT MANAGER_NM FROM LUSH_MANAGER_M WHERE MANAGER_ID =2
+
+    </select>
+    
+     <select id="getTest3" parameterType="String" resultType="String">
+    	
+    	SELECT MANAGER_NM FROM LUSH_MANAGER_M WHERE MANAGER_NM =#{temp}
+
+    </select>
+    
+    <select id="getTest4" parameterType="String" resultType="HashMap">
+    	
+    	SELECT * FROM LUSH_MANAGER_M WHERE MANAGER_ID =2
+
+    </select>
+    
+    <select id="getTest5" parameterType="String" resultType="HashMap">
+    	
+    	SELECT * FROM LUSH_MANAGER_M WHERE MANAGER_NM IN ('KIM', 'PARK')
+
+    </select>
+    
 </mapper>
