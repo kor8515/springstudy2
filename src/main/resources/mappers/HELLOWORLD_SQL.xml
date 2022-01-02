@@ -18,7 +18,14 @@
     
      <select id="getTest3" parameterType="String" resultType="String">
     	
-    	SELECT MANAGER_NM FROM LUSH_MANAGER_M WHERE MANAGER_NM =#{temp}
+    	SELECT 
+    	MANAGER_NM 
+    	FROM LUSH_MANAGER_M 
+    	WHERE 1=1
+    	<if test='_parameter == "PARK"'>
+    		and MANAGER_NM =#{temp}
+    	</if>
+    	
 
     </select>
     
@@ -33,5 +40,33 @@
     	SELECT * FROM LUSH_MANAGER_M WHERE MANAGER_NM IN ('KIM', 'PARK')
 
     </select>
+   
+    
+    <insert id="getTest6">
+ 		INSERT INTO  LUSH_MANAGER_M(MANAGER_ID, MANAGER_NM, PW_DAMO, POSITION, TEL_NO,ROLE_CD)
+ 		VALUES       ('11', 'LIM', '1234', 19, '20',11)
+ 	</insert>
+ 	
+ 	<update id="getTest7" parameterType="String"> 
+ 		update LUSH_MANAGER_M 
+ 		set PW_DAMO = '4567' 
+ 		where MANAGER_NM = 'PARK'
+ 	</update>
+ 	
+ 	    <delete id="getTest8"> 
+        DELETE FROM LUSH_MANAGER_M WHERE MANAGER_NM = 'HONG' 
+        </delete>
+
+
+	<select id="loginInfo" parameterType="HashMap" resultType="HashMap">
+		select
+			MANAGER_NM
+		From
+			LUSH_MANAGER_M
+		where
+			MANAGER_NM=#{user}
+			and PW_DAMO=#{userpw}
+	</select>
+
     
 </mapper>

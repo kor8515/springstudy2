@@ -46,6 +46,41 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		// TODO Auto-generated method stub
 		return helloWorldDao.getTest5();
 	}
+	@Override
+	public int getTest6() {
+		// TODO Auto-generated method stub
+		return helloWorldDao.getTest6();
+	}
+	@Override
+	public int getTest7() {
+		// TODO Auto-generated method stub
+		return helloWorldDao.getTest7();
+	}
+	
+	@Override
+	public int getTest8() {
+		// TODO Auto-generated method stub
+		return helloWorldDao.getTest8();
+	}
+
+	@Override
+	public String getTest9(String temp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	HashMap<String,String> map1 = new HashMap<String,String>();
+	@Override
+	public HashMap loginInfo(String userid, String password) {
+		// TODO Auto-generated method stub
+		
+		HashMap loginmap = new HashMap();
+		loginmap.put("user",userid);
+		loginmap.put("userpw", password);
+		
+		
+		return helloWorldDao.loginInfo(loginmap);
+		
+	}
 	
 	
 }

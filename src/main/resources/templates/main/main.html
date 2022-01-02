@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<link rel="stylesheet" type="text/css" href="css/nfma.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></script>
+		<script src="js/jquery.min.js"></script>
+		<title>민속대백과사전 메인화면</title>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#family p").on("click",function(){
+					$("#family_lst").slideToggle();
+				});
+
+				if(matchMedia("screen and (max-width: 990px)").matches){
+					$("#live_tit").on("click",function(){
+						$("#live_cell").slideToggle();
+					});
+					$("#dic_tit").on("click",function(){
+						$("#dic_cell").slideToggle();
+					});
+				};
+				
+				$("#lang").on("click",function(){
+					$("#lang_cell").slideToggle();
+				});
+				
+				$("#main_dic_select").on("click",function(){
+					$("#dic_select_cell").slideToggle();
+				});
+				
+				$(".gnb_lst li").on("click",function(){
+					$(this).parent().children("li").removeClass("on");
+					$(this).parent().children("li").children("ul").hide();
+ 					$(this).addClass("on");
+ 					$(this).children("ul").show();
+				});
+				$("#lang_dropdown button").on("click",function(){
+					$(".language_cell").slideToggle();
+				});
+				
+				$("#lang_dropdown button").on("click",function(){
+					$(this).css("background-color","#fff");
+				});
+				
+				$("#family button").on("click",function(){
+					$("#family .dropdown-menu").slideToggle();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- <a href="#" id="menu">메뉴</a>
+		<div id="noti">
+			공지사항
+		</div>
+		<div id="idea">
+			의견 보내기
+		</div> -->
+		
+		<div id="main">
+			<div id="lang_area">
+				<div id="lang">
+				  	<!-- <div class="select-style language_select">
+					  <select>
+					    <option value="0">Language</option>
+					  </select>
+					</div> -->
+					 <!-- <div class="language_select">
+					 	Language
+					 </div>
+					 <div class="language_cell">
+					 	<p>한국어</p>
+					 	<p>English</p>
+					 	<p>中國語</p>
+					 	<p>Espanol</p>
+					 </div> -->
+					 <div class="dropdown language_select" id="lang_dropdown">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    Language
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu language_cell" id="language_cell" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">한국어</a></li>
+					    <li><a href="#">English</a></li>
+					    <li><a href="#">中國語</a></li>
+					    <li><a href="#">Espanol</a></li>
+					  </ul>
+					</div>
+					<!-- <div>
+						<p>Language</p>
+					</div>
+					<div id="lang_cell"> 
+						<ul id="lang_lst">
+							<li>
+								<a href="#">한국어</a>
+							</li>
+							<li>
+								<a href="#">영어</a>
+							</li>
+							<li>
+								<a href="#">중국어</a>
+							</li>
+						</ul>
+					</div> -->
+				</div>
+			</div>
+			<div id="header">
+				<div id="srch_cell" class="contain">
+					<a href="#" id="logo">한국민속대백과사전</a>
+					<div class="search_area">
+						<input type="text" id="srch" />
+						<button class="srch_icon">검색</button>
+					</div>
+				</div>
+				<div id="gnb_cell">
+					<div id="gnb">
+						<!-- <div id="main_dic_select">
+							<p>전체사전보기</p>
+						</div>
+						<div id="dic_select_cell">
+							<ul id="dic_select_lst">
+								<li>
+									<a href="#">한국세시풍속사전</a>
+								</li>
+							</ul>
+						</div> -->
+						 <div class="dropdown" id="main_dic_select">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    	전체사전보기
+						  </button>
+						  <ul class="dropdown-menu dic_select_lst" id="dic_select_cell" aria-labelledby="dropdownMenu1">
+						    <li><a href="#">한국세시풍속사전</a></li>
+						  </ul>
+						 </div>
+					  	<!-- <div class="select-style">
+						  <select>
+						    <option value="0">전체사전보기</option>
+						  </select>
+						</div> -->
+						<ul class="gnb_lst">
+							<li class="gnb_brown">
+								<a href="#">개요</a>
+							</li>
+							<li class="gnb_brown">
+								<a href="#">표제어</a>
+								<ul class="second_depth">
+									<li>
+										<a href="#">표제어 목록</a>
+									</li>
+									<li>
+										<a href="#">위치 정보</a>
+									</li>
+								</ul>
+							</li>
+							<li class="gnb_brown">
+								<a href="#">멀티미디어</a>
+								<ul class="second_depth">
+									<li>
+										<a href="#">사진</a>
+									</li>
+									<li>
+										<a href="#">음원</a>
+									</li>
+									<li>
+										<a href="#">멀티미디어</a>
+									</li>
+								</ul>
+							</li>
+							<li class="gnb_brown">
+								<a href="#">문헌자료</a>
+							</li>
+							<li class="gnb_gray">
+								<a href="#">색인검색</a>
+								<ul class="second_depth">
+									<li>
+										<a href="#">가나다색인</a>
+									</li>
+									<li>
+										<a href="#">디렉터리 분류</a>
+									</li>
+									<li>
+										<a href="#">집필자 목록</a>
+									</li>
+								</ul>
+							</li>
+							<li class="gnb_gray">
+								<a href="#">사전소개</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div id="main_cont" class="main_cont">
+				<div id="cont_top" class="contain">
+					<h2 id="main_tit">인기 검색어</h2>
+					<div id="first_cont" class="box_container">
+						<div id="first_img">
+							<a href="#">1번째 이미지</a>
+						</div>
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p>
+								동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세.
+							</p>
+							<span class="text_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+					<div class="second_cont box_container">
+						<div class="second_img">
+							<a href="#">2번째 이미지</a>
+						</div>
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p class="text_cont second_text">1960년 4월 19일을 전후하여 이승만 정권 및 자유당의 독재와 부정선거에 대한 항거를 시작으로 민주주의, 통일, 자주, 자립경제를 주장하며 전개되었던 사회변혁운동을 국가 차원에서 기념하는 날. 4·19혁명은 평가와 의미 부여에 따라 ‘혁명’에서 ‘의거’로, 다시 ‘혁명’으로 명칭이 바뀌었다. 4·19혁명에 의해 이승만 정권이 붕괴되고 새로운 정부가 들어섰기 때문에 4·19혁명 기념식은 국가 차원에서 개최되었으나, 박정희 군사정권이 안정되기 시작하면서 그 의미가 점차 축소되었다. 1973년 3월에 ‘4·19의거기념일’은 정부기념일로 지정되었고, 1994년 ‘4·19혁명기념일’로 명칭이 변경되면서 의의가 격상되었다.
+							</p>
+							<span class="text_dic second_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+					<div class="second_cont box_container">
+						<div class="second_img">
+							<a href="#">2번째 이미지</a>
+						</div>
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p class="text_cont second_text">
+								동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세.
+							</p>
+							<span class="text_dic second_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+					<div class="third_cont box_container">
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p class="text_cont third_text">
+								동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세.
+							</p>
+							<span class="text_dic second_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+					<div class="third_cont box_container">
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p class="text_cont third_text">
+								동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세.
+							</p>
+							<span class="text_dic second_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+					<div class="third_cont box_container">
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p class="text_cont third_text">
+								동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세.
+							</p>
+							<span class="text_dic second_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+					<div class="third_cont box_container">
+						<div class="text">
+							<h4 class="clearfix"><p class="gray">01</p><a href="#">강강술래</a></h4>
+							<p class="text_cont third_text">
+								1960년 4월 19일을 전후하여 이승만 정권 및 자유당의 독재와 부정선거에 대한 항거를 시작으로 민주주의, 통일, 자주, 자립경제를 주장하며 전개되었던 사회변혁운동을 국가 차원에서 기념하는 날. 4·19혁명은 평가와 의미 부여에 따라 ‘혁명’에서 ‘의거’로, 다시 ‘혁명’으로 명칭이 바뀌었다. 4·19혁명에 의해 이승만 정권이 붕괴되고 새로운 정부가 들어섰기 때문에 4·19혁명 기념식은 국가 차원에서 개최되었으나, 박정희 군사정권이 안정되기 시작하면서 그 의미가 점차 축소되었다. 1973년 3월에 ‘4·19의거기념일’은 정부기념일로 지정되었고, 1994년 ‘4·19혁명기념일’로 명칭이 변경되면서 의의가 격상되었다.
+							</p>
+							<span class="text_dic second_dic gray">한국세시풍속사전</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row live_row">
+				<div id="live" class="contain">
+					<h2 class="sec_tit" id="live_tit">생생한 한국민속</h2>
+					<div id="live_cell" class="col-md-12">
+						<ul id="live_lst">
+							<li class="media_cell">
+								<div>
+									<a href="#">
+										<img src="img/main_image_thumbnail_play_icon.png" class="live_img_size" alt="">
+									</a>
+								</div>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/main_image_thumbnail_play_icon.png" class="live_img_size" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/main_image_thumbnail_play_icon.png" class="live_img_size" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/main_image_thumbnail_play_icon.png" class="live_img_size" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/main_image_thumbnail_play_icon.png" class="live_img_size" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
+					<a href="#" class="more">더보기</a>
+				</div>
+			</div>
+			<div class="row main_literautre_row">
+				<div id="literature" class="contain">
+					<h2 class="sec_tit" id="literature_tit">문헌자료실</h2>
+					<div id="live_cell" class="col-md-12">
+						<ul id="literature_lst">
+							<li>
+								<a href="#">
+									<img src="img/literature_01.png" class="literature_img_size" alt="">
+									<p class="literature_tit">조선대세시기</p>
+									<p class="literature_data">한국세시풍속사전</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/literature_02.png" class="literature_img_size" alt="">
+									<p class="literature_tit">세시풍송자료집성</p>
+									<p class="literature_data">한국세시풍속사전</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/literature_03.png" class="literature_img_size" alt="">
+									<p class="literature_tit">중국세시문헌자료</p>
+									<p class="literature_data">한국세시풍속사전</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/literature_04.png" class="literature_img_size" alt="">
+									<p class="literature_tit">무속신앙관련 학술논문</p>
+									<p class="literature_data">한국민속신앙사전</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<a href="#" class="more">더보기</a>	
+				</div>
+			</div>
+			<a href="#" id="toBottom">
+				최하단으로
+			</a>
+			<div id="footer">
+				<div id="footer_cont" class="contain">
+					<img src="img/museum_logo.png" width="168" height="40" alt="" />
+					<address>
+						<span>03045 서울시 종로구 삼청로 37 | 전화 02-3704-3230 | 이메일 folkency@korea.kr</span>
+						<span>Copyright &#169; 국립민속박물관.All Rights Reserverd 저작권정책</span>
+						<a href="#" id="notice">공지사항</a>
+						<a href="#" id="opinion">의견보내기</a>
+					</address>
+					<!-- <div id="family">
+					  	<div class="select-style" id="family_select">
+						  <select>
+						    <option value="0">관련사이트바로가기</option>
+						    <option value="1">관련사이트바로가기</option>
+						    <option value="2">관련사이트바로가기</option>
+						    <option value="3">관련사이트바로가기</option>
+						    <option value="4">관련사이트바로가기</option>
+						    <option value="5">관련사이트바로가기</option>
+						    <option value="6">관련사이트바로가기</option>
+						    <option value="7">관련사이트바로가기</option>
+						  </select>
+						</div>
+					</div> -->
+						<div class="dropup" id="family">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    관련사이트바로가기
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						    <li><a href="#">관련사이트1</a></li>
+						    <li><a href="#">관련사이트2</a></li>
+						    <li><a href="#">관련사이트3</a></li>
+						  </ul>
+						</div>
+				</div>
+			</div>
+	</body>
+</html>

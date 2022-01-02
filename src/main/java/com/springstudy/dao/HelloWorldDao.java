@@ -15,4 +15,17 @@ public interface HelloWorldDao {
 	
 	List<HashMap> getTest5();
 	
+	int getTest6();
+	
+	int getTest7();
+	int getTest8();
+
+	
+	String getTest9(String temp,String temp2);
+	
+	HashMap loginInfo(HashMap user);
+
+
+
+	
 }

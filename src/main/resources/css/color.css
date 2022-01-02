@@ -1,0 +1,29 @@
+.gnb_lst_01{background-color:#2a4653;}
+.gnb_lst_01 li{background-color:#d3dcd0;}
+.gnb_lst_01 li:nth-child(5),.gnb_lst_01 li:last-child{background-color:#2a4653;}
+.gnb_lst_01 li.on,.gnb_lst_01 li:hover,.gnb_lst_01 li:focus{background-color:#2a4653;}
+
+.gnb_lst_02{background-color:#2ed5b8;}
+.gnb_lst_02 li{background-color:#8a8577;}
+.gnb_lst_02 li:nth-child(5),.gnb_lst_01 li:last-child{background-color:#f2eacb;}
+.gnb_lst_02 li.on,.gnb_lst_01 li:hover,.gnb_lst_01 li:focus{background-color:#b23e38;}
+
+.gnb_lst_03{background-color:#c7c582;}
+.gnb_lst_03 li{background-color:#464f41;}
+.gnb_lst_03 li:nth-child(5),.gnb_lst_01 li:last-child{background-color:#e6e4c7;}
+.gnb_lst_03 li.on,.gnb_lst_01 li:hover,.gnb_lst_01 li:focus{background-color:#ba5b4e;}
+
+.gnb_lst_04{background-color:#cc94a0;}
+.gnb_lst_04 li{background-color:#eabb9e;}
+.gnb_lst_04 li:nth-child(5),.gnb_lst_01 li:last-child{background-color:#dce7f3;}
+.gnb_lst_04 li.on,.gnb_lst_01 li:hover,.gnb_lst_01 li:focus{background-color:#304456;}
+
+.gnb_lst_05{background-color:#a4acc2;}
+.gnb_lst_05 li{background-color:#538996;}
+.gnb_lst_05 li:nth-child(5),.gnb_lst_01 li:last-child{background-color:#ccd8d2;}
+.gnb_lst_05 li.on,.gnb_lst_01 li:hover,.gnb_lst_01 li:focus{background-color:#ecc242;}
+
+.gnb_lst_06{background-color:#a8d3d0;}
+.gnb_lst_06 li{background-color:#5a6b7e;}
+.gnb_lst_06 li:nth-child(5),.gnb_lst_01 li:last-child{background-color:#e0e6d0;}
+.gnb_lst_06 li.on,.gnb_lst_01 li:hover,.gnb_lst_01 li:focus{background-color:#e2797d;}
