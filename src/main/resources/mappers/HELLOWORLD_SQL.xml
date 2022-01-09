@@ -5,9 +5,10 @@
 <mapper namespace="helloworld">
     
     <select id="getTest" resultType="String">
-    	
-    	SELECT TEST1
-    	FROM TEST_T	    
+		SELECT
+		* 
+		FROM
+		LUSH_MANAGER_M
     </select>
     
     <select id="getTest2" resultType="String">
@@ -60,7 +61,7 @@
 
 	<select id="loginInfo" parameterType="HashMap" resultType="HashMap">
 		select
-			MANAGER_NM
+			*
 		From
 			LUSH_MANAGER_M
 		where

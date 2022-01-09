@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -116,37 +117,57 @@ public class HelloWorld2Controller {
 //	}
 
 	
-	@RequestMapping(value="/login")
-	public ModelAndView longin() {
-		
-		ModelAndView model1 = new ModelAndView("/testpage/logintest2");
-		return model1;
-		
-	}
-	
-	@RequestMapping(value="/loginproc2")
-	public ModelAndView loginproc2(HttpServletRequest req) {
-		String userId = req.getParameter("userid");
-		String userPassword=req.getParameter("password");
-		
-		System.out.println(userId);
-		System.out.println(userPassword);
-		
-		HashMap loginInfo =helloService.loginInfo(userId,userPassword);
-		
-		ModelAndView view = null;
-		if(loginInfo != null) {
-			view = new ModelAndView("/testpage/a");
-			view.addObject("loginInfo", loginInfo);
-		}else {
-			view = new ModelAndView("/testpage/b");
+//	@RequestMapping(value="/login")
+//	public ModelAndView longin() {
+//		
+//		ModelAndView model1 = new ModelAndView("/testpage/logintest2");
+//		return model1;
+//		
+//	}
+//	
+//	@RequestMapping(value="/loginproc2")
+//	public ModelAndView loginproc2(HttpServletRequest req) {
+//		String userId = req.getParameter("userid");
+//		String userPassword=req.getParameter("password");
+//		
+//		System.out.println(userId);
+//		System.out.println(userPassword);
+//		
+//		HashMap loginInfo =helloService.loginInfo(userId,userPassword);
+//		
+//		ModelAndView view = null;
+//		if(loginInfo != null) {
+//			view = new ModelAndView("/testpage/a");
+//			view.addObject("loginInfo", loginInfo);
+//		}else {
+//			view = new ModelAndView("/testpage/b");
+//		}
+//		
+//		return view;
+//		}
+//	
+		@RequestMapping(value="/login")
+		public ModelAndView login() {
+			ModelAndView model1= new ModelAndView("/testpage/logintest2");
+			return model1;
 		}
-		
-		return view;
-		
-		
-	}
-	
+		@RequestMapping(value="/loginproc2")
+		public ModelAndView loginproc2(HttpServletRequest req) {
+			String userId = req.getParameter("userid");
+			String userPw = req.getParameter("password");
+			
+			HashMap loginInfo =helloService.loginInfo(userId,userPw);
+			
+			ModelAndView view = null;
+				
+			if(loginInfo !=null){
+				view = new ModelAndView("/testpage/a");
+				view.addObject("loginInfo", loginInfo);
+			}else {
+				view = new ModelAndView("/testpage/b");
+			}
+			return view;
+		}
 	
 	
 }
