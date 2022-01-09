@@ -87,5 +87,12 @@ public class HelloWorldDaoImpl implements HelloWorldDao{
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("helloworld.loginInfo", user);
 	}
+	
+	@Override
+	public int InsertloginIp(HashMap user1) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("helloworld.InsertloginIp",user1);
+	}
+	
 
 }

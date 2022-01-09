@@ -68,6 +68,13 @@
 			MANAGER_NM=#{user}
 			and PW_DAMO=#{userpw}
 	</select>
-
+	
+	<insert id="InsertloginIp" parameterType="HashMap">
+	INSERT INTO 
+		lush_manager_log(log_no, manager_id, page_cd, reg_date, ip) 
+	VALUES 
+		( NVL( (SELECT MAX(LOG_NO)+1 FROM LUSH_MANAGER_LOG), 0 ), #{userid}, '1234', SYSDATE, #{userip} )
+	
+	</insert>
     
 </mapper>

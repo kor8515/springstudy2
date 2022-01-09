@@ -81,6 +81,16 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		return helloWorldDao.loginInfo(loginmap);
 		
 	}
+
+	@Override
+	public int InsertloginIp(String userId, String userIp) {
+		// TODO Auto-generated method stub
+		HashMap loginIpmap = new HashMap();
+		loginIpmap.put("userid",userId);
+		loginIpmap.put("userip", userIp);
+		
+		return helloWorldDao.InsertloginIp(loginIpmap);
+	}
 	
 	
 }

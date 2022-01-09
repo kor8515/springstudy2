@@ -56,7 +56,9 @@ public class HelloWorldController {
 //	}
 	
 	@RequestMapping(value="/logintest")
-	public ModelAndView logintest() {
+	public ModelAndView logintest(HttpServletRequest request) {
+		
+		System.out.println("ip :::::"+ request.getRemoteAddr());
 		
 		
 		ModelAndView model = new ModelAndView("/testpage/logintest");

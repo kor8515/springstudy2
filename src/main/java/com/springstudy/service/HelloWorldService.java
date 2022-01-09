@@ -24,6 +24,9 @@ public interface HelloWorldService {
 	String getTest9(String temp);
 	
 	HashMap loginInfo(String userid,String password);
+	
+	int InsertloginIp(String userId, String userIp );
+
 
 
 

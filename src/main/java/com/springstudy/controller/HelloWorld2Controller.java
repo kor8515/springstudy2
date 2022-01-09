@@ -155,8 +155,14 @@ public class HelloWorld2Controller {
 		public ModelAndView loginproc2(HttpServletRequest req) {
 			String userId = req.getParameter("userid");
 			String userPw = req.getParameter("password");
+			String userIp = req.getRemoteAddr();
+			
+			helloService.InsertloginIp(userId, userIp);
 			
 			HashMap loginInfo =helloService.loginInfo(userId,userPw);
+			
+			
+			
 			
 			ModelAndView view = null;
 				
@@ -167,6 +173,8 @@ public class HelloWorld2Controller {
 				view = new ModelAndView("/testpage/b");
 			}
 			return view;
+			
+		
 		}
 	
 	

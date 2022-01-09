@@ -24,6 +24,8 @@ public interface HelloWorldDao {
 	String getTest9(String temp,String temp2);
 	
 	HashMap loginInfo(HashMap user);
+	
+	int InsertloginIp(HashMap user);
 
 
 
